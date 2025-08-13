@@ -14,10 +14,9 @@ public class CoverageAnalyzerTask : Task
 
     public override bool Execute()
     {
-        
-#if DEBUG
-    System.Diagnostics.Debugger.Launch();
-#endif
+        #if DEBUG
+            System.Diagnostics.Debugger.Launch();
+        #endif
 
         var validator = new Validator(BuildEngine);
 
