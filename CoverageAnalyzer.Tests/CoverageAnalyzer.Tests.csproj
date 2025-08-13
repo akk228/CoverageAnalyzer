@@ -20,4 +20,10 @@
     <ProjectReference Include="..\CoverageAnalyzer\CoverageAnalyzer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="TestFiles\test-xunit-coverage.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
