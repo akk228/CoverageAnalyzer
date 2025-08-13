@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
-using CoverageAnalyzer.CoverageReportParser.Entitites;
+using System.Linq;
+using CoverageAnalyzer.ReportParser;
+using CoverageAnalyzer.ReportParser.Entitites;
 
 namespace CoverageAnalyzer.Tests;
 
