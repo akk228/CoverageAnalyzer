@@ -1,4 +1,4 @@
-namespace CoverageAnalyzer.CoverageReportParser.Entitites
+namespace CoverageAnalyzer.ReportParser.Entitites
 {
     public class CoverableLine
     {
