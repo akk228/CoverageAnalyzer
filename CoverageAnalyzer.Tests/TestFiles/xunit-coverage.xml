@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<CoverageSession xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Summary numSequencePoints="7" visitedSequencePoints="0" numBranchPoints="3" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="2" minCyclomaticComplexity="1" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+  <Modules>
+    <Module hash="FF-92-FD-06-CA-59-4B-E5-0C-07-AE-6A-3C-27-BD-62-5D-65-26-8B">
+      <Summary numSequencePoints="7" visitedSequencePoints="0" numBranchPoints="3" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="2" minCyclomaticComplexity="1" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+      <ModulePath>C:\Users\andre\Documents\Studying\CodeCoverageTrial\bin\tests\SampleLibrary.dll</ModulePath>
+      <ModuleTime>2025-08-12T14:45:28.5698841Z</ModuleTime>
+      <ModuleName>SampleLibrary</ModuleName>
+      <Files>
+        <File uid="1" fullPath="c:\Users\andre\Documents\Studying\CodeCoverageTrial\src\SampleLibrary\Calculator.cs" />
+      </Files>
+      <Classes>
+        <Class>
+          <Summary numSequencePoints="7" visitedSequencePoints="0" numBranchPoints="3" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="2" minCyclomaticComplexity="1" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+          <FullName>SampleLibrary.Calculator</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="2" nPathComplexity="2" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <Summary numSequencePoints="7" visitedSequencePoints="0" numBranchPoints="3" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="2" minCyclomaticComplexity="2" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+              <MetadataToken>100663297</MetadataToken>
+              <Name>System.Double SampleLibrary.Calculator::Divide(System.Double,System.Double)</Name>
+              <FileRef uid="1" />
+              <SequencePoints>
+                <SequencePoint vc="1" uspid="6" ordinal="0" offset="0" sl="8" sc="9" el="8" ec="10" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="5" ordinal="1" offset="1" sl="9" sc="13" el="9" ec="30" bec="2" bev="0" fileid="1" />
+                <SequencePoint vc="0" uspid="4" ordinal="2" offset="20" sl="10" sc="13" el="10" ec="14" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="0" uspid="3" ordinal="3" offset="21" sl="11" sc="17" el="11" ec="97" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="2" ordinal="4" offset="32" sl="14" sc="13" el="14" ec="44" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="1" ordinal="5" offset="36" sl="16" sc="13" el="16" ec="27" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="0" ordinal="6" offset="40" sl="17" sc="9" el="17" ec="10" bec="0" bev="0" fileid="1" />
+              </SequencePoints>
+              <BranchPoints>
+                <BranchPoint vc="0" uspid="0" ordinal="0" offset="18" sl="9" path="0" offsetend="20" fileid="1" />
+                <BranchPoint vc="1" uspid="1" ordinal="1" offset="18" sl="9" path="1" offsetend="32" fileid="1" />
+              </BranchPoints>
+              <MethodPoint />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="true" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+              <MetadataToken>100663298</MetadataToken>
+              <Name>System.Void SampleLibrary.Calculator::.ctor()</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint />
+            </Method>
+          </Methods>
+        </Class>
+      </Classes>
+    </Module>
+  </Modules>
+</CoverageSession>
