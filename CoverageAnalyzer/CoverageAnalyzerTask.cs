@@ -3,34 +3,38 @@ using Microsoft.Build.Framework;
 // using Microsoft.Build.Utilities;
 using Task = Microsoft.Build.Utilities.Task;
 
-public class CoverageAnalyzerTask : Task
+namespace CoverageAnalyzer
 {
-    [Required]
-    public string CoverageFilePath { get; set; }
-
-    public string ReferenceBranch { get; set; }
-
-    public string TargetBranch { get; set; }
-
-    public override bool Execute()
+    
+    public class CoverageAnalyzerTask : Task
     {
-        #if DEBUG
-            System.Diagnostics.Debugger.Launch();
-        #endif
+        [Required]
+        public string CoverageFilePath { get; set; }
 
-        var validator = new Validator(BuildEngine);
+        public string ReferenceBranch { get; set; }
 
-        if (!validator.Validate(CoverageFilePath, TargetBranch, ReferenceBranch))
+        public string TargetBranch { get; set; }
+
+        public override bool Execute()
         {
-            return false;
+            #if DEBUG
+                System.Diagnostics.Debugger.Launch();
+            #endif
+
+            var validator = new Validator(BuildEngine);
+
+            if (!validator.Validate(CoverageFilePath, TargetBranch, ReferenceBranch))
+            {
+                return false;
+            }
+
+            BuildEngine.LogMessageEvent(new BuildMessageEventArgs(
+                $"Analyzing coverage differences between branches {ReferenceBranch} and {TargetBranch} using file {CoverageFilePath}.",
+                "", "CoverageAnalyzerTask", MessageImportance.High));
+
+            // Add logic to process the coverage.xml file and compare branches here.
+
+            return true;
         }
-
-        BuildEngine.LogMessageEvent(new BuildMessageEventArgs(
-            $"Analyzing coverage differences between branches {ReferenceBranch} and {TargetBranch} using file {CoverageFilePath}.",
-            "", "CoverageAnalyzerTask", MessageImportance.High));
-
-        // Add logic to process the coverage.xml file and compare branches here.
-
-        return true;
     }
 }
