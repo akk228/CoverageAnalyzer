@@ -12,7 +12,7 @@ public class WhenParsingCoverageXml
         yield return new object[] {
             new List<FileCoverage>
             {
-                new FileCoverage { UId = 1, FileName = @"c:\Users\andre\Documents\Studying\CodeCoverageTrial\src\SampleLibrary\Calculator.cs" },
+                new FileCoverage(1, @"c:\Users\andre\Documents\Studying\CodeCoverageTrial\src\SampleLibrary\Calculator.cs"),
             },
             "TestFiles/test-xunit-coverage.xml"
         };
@@ -22,7 +22,7 @@ public class WhenParsingCoverageXml
     [MemberData(nameof(TestFilesData))]
     public void GetCorrectFileNamesAndIds(IEnumerable<FileCoverage> expectedFileCoverages, string coverageFilePath)
     {
-        var parser = new CoverageReportParser();
+        var parser = new AltCoverReportParser();
         var actualFileCoverages = parser.ParseCoverageReport(coverageFilePath);
 
         Assert.Equal(expectedFileCoverages.Count(), actualFileCoverages.Count());
