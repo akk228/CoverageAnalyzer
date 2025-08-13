@@ -12,9 +12,7 @@ public class WhenParsingCoverageXml
         yield return new object[] {
             new List<FileCoverage>
             {
-                new FileCoverage { UId = 1, FileName = "TestProject1.cs" },
-                new FileCoverage { UId = 2, FileName = "TestProject2.cs" },
-                new FileCoverage { UId = 3, FileName = "TestProject3.cs" }
+                new FileCoverage { UId = 1, FileName = @"c:\Users\andre\Documents\Studying\CodeCoverageTrial\src\SampleLibrary\Calculator.cs" },
             },
             "TestFiles/test-xunit-coverage.xml"
         };
