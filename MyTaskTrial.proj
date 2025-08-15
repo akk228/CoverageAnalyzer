@@ -4,6 +4,9 @@
 
     <PropertyGroup>
         <WorkingDir>$(MSBuildProjectDirectory)</WorkingDir>
+        <Configuration>Debug</Configuration>
+        <SolutionFile>CoverageAnalyzer.sln</SolutionFile>
+        <Platform>Any CPU</Platform>
     </PropertyGroup>
 
     <UsingTask
@@ -18,4 +21,22 @@
             CoverageFilePath="$(WorkingDir)\xunit-coverage.xml"
         />
     </Target>
+
+    <Target Name="Compile" DependsOnTargets="Restore">
+        <Message Text="Compiling project..." Importance="high" />
+        <!-- Add compilation steps here -->
+
+        <MSBuild Projects="$(SolutionFile)" 
+                 Targets="Build"
+                 Properties="Configuration=$(Configuration)" />
+    </Target>
+
+    <Target Name="Restore">
+        <Message Text="Restoring packages..." Importance="high" />
+        <!-- Add restore steps here -->
+
+        <MSBuild Projects="$(SolutionFile)" 
+                 Targets="Restore"
+                 Properties="Configuration=$(Configuration)" />
+        </Target>
 </Project>
