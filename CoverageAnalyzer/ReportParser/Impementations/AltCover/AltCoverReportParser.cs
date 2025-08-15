@@ -11,7 +11,7 @@ namespace CoverageAnalyzer.ReportParser.Implementations.AltCover
     public class AltCoverReportParser : IReportParser
     {
         private const string FileNodeName = "File";
-        private const string SequenceNodeName = "SequencePoints";
+        private const string SequenceNodeName = "SequencePoint";
 
         private readonly DescendantReader _descendantReader;
         
