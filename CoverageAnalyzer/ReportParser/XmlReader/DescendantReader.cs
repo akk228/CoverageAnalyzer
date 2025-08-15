@@ -16,7 +16,7 @@ namespace CoverageAnalyzer.ReportParser.XmlReader
 
             if (string.IsNullOrWhiteSpace(nodeName))
             {
-                throw new ArgumentException("Node name cannot be null or empty.", nameof(nodeName));
+                throw new ArgumentException("Xml node name cannot be null or empty.", nameof(nodeName));
             }
 
             var sequencePointSerializer = new XmlSerializer(typeof(T));
