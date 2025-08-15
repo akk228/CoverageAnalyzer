@@ -13,6 +13,6 @@ namespace CoverageAnalyzer.ReportParser.Entitites
 
         public int UId { get; }
         public string FileName { get; }
-        public IEnumerable<CoverableLine> Lines { get; }
+        public IList<CoverableLine> Lines { get; }
     }
 }
