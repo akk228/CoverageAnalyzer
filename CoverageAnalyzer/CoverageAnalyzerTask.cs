@@ -59,7 +59,7 @@ namespace CoverageAnalyzer
 
             foreach (var fileCoverage in fileCoverages)
             {
-                var coveredLines = "Line number | Is covered\n" + "-------------------\n" +
+                var coveredLines = "Line number | Is covered\n" + "------------------------\n" +
                     string.Join(
                         "\n",
                         fileCoverage
@@ -70,7 +70,7 @@ namespace CoverageAnalyzer
                                 $"{l.IsCovered}".PadRight(isCoveredColumnLength)));
 
                 BuildEngine.LogMessageEvent(new BuildMessageEventArgs(
-                    $"File: {fileCoverage.FileName}, ID: {fileCoverage.UId}\n Lines: {coveredLines}",
+                    $"File: \n\t{fileCoverage.FileName}, ID: \n\t{fileCoverage.UId}\nLines:\n{coveredLines}",
                     "", "CoverageAnalyzerTask", MessageImportance.High));
             }
         }
