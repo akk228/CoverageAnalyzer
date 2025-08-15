@@ -1,11 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
 using System.Resources;
+using CoverageAnalyzer.ReportParser;
+using CoverageAnalyzer.ReportParser.Entitites;
+using CoverageAnalyzer.ReportParser.Implementations.AltCover;
+using CoverageAnalyzer.ReportParser.XmlReader;
 using Microsoft.Build.Framework;
 // using Microsoft.Build.Utilities;
 using Task = Microsoft.Build.Utilities.Task;
 
 namespace CoverageAnalyzer
 {
-    
+
     public class CoverageAnalyzerTask : Task
     {
         [Required]
@@ -17,9 +23,9 @@ namespace CoverageAnalyzer
 
         public override bool Execute()
         {
-            #if DEBUG
-                System.Diagnostics.Debugger.Launch();
-            #endif
+#if DEBUG
+            System.Diagnostics.Debugger.Launch();
+#endif
 
             var validator = new Validator(BuildEngine);
 
@@ -28,13 +34,45 @@ namespace CoverageAnalyzer
                 return false;
             }
 
+            LogStartMessage();
+
+            IReportParser reportParser = new AltCoverReportParser(new DescendantReader());
+
+            var fileCoverages = reportParser.ParseCoverageReport(CoverageFilePath);
+            
+            LogCoveredLines(fileCoverages);
+
+            return true;
+        }
+
+        private void LogStartMessage()
+        {
             BuildEngine.LogMessageEvent(new BuildMessageEventArgs(
                 $"Analyzing coverage differences between branches {ReferenceBranch} and {TargetBranch} using file {CoverageFilePath}.",
                 "", "CoverageAnalyzerTask", MessageImportance.High));
+        }
+        
+        private void LogCoveredLines(IEnumerable<FileCoverage> fileCoverages)
+        {
+            var lineNUmberColumnLength = "Line number ".Length;
+            var isCoveredColumnLength = "Is covered".Length;
 
-            // Add logic to process the coverage.xml file and compare branches here.
+            foreach (var fileCoverage in fileCoverages)
+            {
+                var coveredLines = "Line number | Is covered\n" + "-------------------\n" +
+                    string.Join(
+                        "\n",
+                        fileCoverage
+                            .Lines
+                            .Select(l =>
+                                $"{l.LineNumber} ".PadRight(lineNUmberColumnLength) +
+                                "| " +
+                                $"{l.IsCovered}".PadRight(isCoveredColumnLength)));
 
-            return true;
+                BuildEngine.LogMessageEvent(new BuildMessageEventArgs(
+                    $"File: {fileCoverage.FileName}, ID: {fileCoverage.UId}\n Lines: {coveredLines}",
+                    "", "CoverageAnalyzerTask", MessageImportance.High));
+            }
         }
     }
 }
