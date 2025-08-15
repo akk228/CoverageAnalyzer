@@ -15,7 +15,7 @@
         <CoverageAnalyzerTask
             ReferenceBranch="main"
             TargetBranch="feature/coverage-analysis"
-            CoverageFilePath="$(WorkingDir)\coverage.xml"
+            CoverageFilePath="$(WorkingDir)\xunit-coverage.xml"
         />
     </Target>
 </Project>
