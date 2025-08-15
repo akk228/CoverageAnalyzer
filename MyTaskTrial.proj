@@ -11,7 +11,7 @@
 
     <UsingTask
         TaskName="CoverageAnalyzerTask" 
-        AssemblyFile="$(WorkingDir)\CoverageAnalyzer\bin\Debug\netstandard2.0\CoverageAnalyzer.dll"
+        AssemblyFile="$(WorkingDir)\CoverageAnalyzer\bin\$(Configuration)\netstandard2.0\CoverageAnalyzer.dll"
     />
     
     <Target Name="AnalyzeCoverage">
