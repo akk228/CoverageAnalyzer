@@ -2,6 +2,7 @@
 using System.Linq;
 using CoverageAnalyzer.ReportParser.Entitites;
 using CoverageAnalyzer.ReportParser.Implementations.AltCover;
+using CoverageAnalyzer.ReportParser.XmlReader;
 
 namespace CoverageAnalyzer.Tests;
 
@@ -22,7 +23,7 @@ public class WhenParsingCoverageXml
     [MemberData(nameof(TestFilesData))]
     public void GetCorrectFileNamesAndIds(IEnumerable<FileCoverage> expectedFileCoverages, string coverageFilePath)
     {
-        var parser = new AltCoverReportParser();
+        var parser = new AltCoverReportParser(new DescendantReader());
         var actualFileCoverages = parser.ParseCoverageReport(coverageFilePath);
 
         Assert.Equal(expectedFileCoverages.Count(), actualFileCoverages.Count());
