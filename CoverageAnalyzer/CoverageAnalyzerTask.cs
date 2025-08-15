@@ -20,6 +20,7 @@ namespace CoverageAnalyzer
         public string ReferenceBranch { get; set; }
 
         public string TargetBranch { get; set; }
+        
 
         public override bool Execute()
         {
@@ -39,7 +40,7 @@ namespace CoverageAnalyzer
             IReportParser reportParser = new AltCoverReportParser(new DescendantReader());
 
             var fileCoverages = reportParser.ParseCoverageReport(CoverageFilePath);
-            
+
             LogCoveredLines(fileCoverages);
 
             return true;
