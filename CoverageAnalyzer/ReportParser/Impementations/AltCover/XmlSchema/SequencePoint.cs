@@ -21,6 +21,6 @@ namespace CoverageAnalyzer.ReportParser.Impementations.AltCover.XmlSchema
         public int EndColumn { get; set; }
 
         [XmlAttribute("fileid")]
-        public string FileId { get; set; }
+        public int FileId { get; set; }
     }
 }
