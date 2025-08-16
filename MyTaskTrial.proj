@@ -38,5 +38,5 @@
         <MSBuild Projects="$(SolutionFile)" 
                  Targets="Restore"
                  Properties="Configuration=$(Configuration)" />
-        </Target>
+    </Target>
 </Project>
