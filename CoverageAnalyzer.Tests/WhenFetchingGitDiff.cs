@@ -11,7 +11,7 @@ namespace CoverageAnalyzer.Tests
         public void ShouldThrowExceptionForInvalidRepositoryPath(string repoPath, string targetBranch, string referenceBranch)
         {
             var diffReader = new DiffReader();
-            var result = diffReader.GetDiff(repoPath, targetBranch, referenceBranch);
+            var result = diffReader.Get(repoPath, targetBranch, referenceBranch);
             Assert.True(true, "This test is a placeholder for actual implementation.");
         }
     }
