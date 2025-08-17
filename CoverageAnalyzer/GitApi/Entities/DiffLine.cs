@@ -1,6 +1,4 @@
-using System;
-
-namespace CoverageAnalyzer.GitDiffParser.Entities
+namespace CoverageAnalyzer.GitApi.Entities
 {
     /// <summary>
     /// Represents a line in a Git diff.
