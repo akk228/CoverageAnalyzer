@@ -4,9 +4,9 @@ namespace CoverageAnalyzer.GitApi.Entities
 {
     public class GitDiff
     {
-        public string FilePath { get; set; }
-        public string ChangeType { get; set; } // Added, Modified, Deleted
-        public string DiffContent { get; set; }
+        public string FilePath { get; }
+        public string ChangeType { get; } // Added, Modified, Deleted
+        public string DiffContent { get; }
 
         public GitDiff(string filePath, string changeType, string diffContent)
         {
