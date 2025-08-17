@@ -1,4 +1,5 @@
 using System;
+using AutoMapper;
 using CoverageAnalyzer.GitApi;
 using Xunit;
 

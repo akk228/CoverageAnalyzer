@@ -10,13 +10,6 @@ namespace CoverageAnalyzer.GitApi
 {
     public class DiffReader
     {
-        private readonly IMapper _mapper;
-
-        public DiffReader(IMapper mapper)
-        {
-            _mapper = mapper;
-        }
-
         /// <summary>
         /// Gets the differences between two branches in a Git repository.
         /// </summary>
