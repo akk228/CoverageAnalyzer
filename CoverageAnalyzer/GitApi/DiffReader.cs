@@ -1,13 +1,22 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using AutoMapper;
 using CoverageAnalyzer.GitApi.Entities;
+using CoverageAnalyzer.GitApi.Mappers;
 using LibGit2Sharp;
 
 namespace CoverageAnalyzer.GitApi
 {
     public class DiffReader
     {
+        private readonly IMapper _mapper;
+
+        public DiffReader(IMapper mapper)
+        {
+            _mapper = mapper;
+        }
+
         /// <summary>
         /// Gets the differences between two branches in a Git repository.
         /// </summary>
@@ -38,8 +47,29 @@ namespace CoverageAnalyzer.GitApi
                 var targetTip = (repo.Branches[targetBranch]?.Tip) ?? throw new ArgumentException($"Target branch '{targetBranch}' does not exist.", nameof(targetBranch));
                 var diff = repo.Diff.Compare<Patch>(referenceTip.Tree, targetTip.Tree, new CompareOptions { ContextLines = 0 });
 
-                return diff.Select(patchEntry => new GitDiff(patchEntry.Path, patchEntry.Status.ToString(), patchEntry.Patch));
+                return MapPatchEntriesToGitDiffs(diff);
             }
+        }
+
+        // TODO : remove that and use automapper
+        private IEnumerable<GitDiff> MapPatchEntriesToGitDiffs(IEnumerable<PatchEntryChanges> patchEntries)
+        {
+            return patchEntries.Select(patchEntry => new GitDiff
+            {
+                FilePath = patchEntry.Path,
+                ChangeType = patchEntry.Status.ToString(),
+                DiffContent = patchEntry.Patch,
+                LinesAdded = patchEntry.AddedLines.Select(line => new DiffLine
+                {
+                    LineNumber = line.LineNumber,
+                    Content = line.Content,
+                }),
+                LinesDeleted = patchEntry.DeletedLines.Select(line => new DiffLine
+                {
+                    LineNumber = line.LineNumber,
+                    Content = line.Content,
+                })
+            });
         }
     }
 }

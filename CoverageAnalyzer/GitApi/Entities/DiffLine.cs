@@ -5,20 +5,15 @@ namespace CoverageAnalyzer.GitApi.Entities
     /// </summary>
     public class DiffLine
     {
-        public DiffLine(int lineNumber, string content)
-        {
-            LineNumber = lineNumber;
-            Content = content;
-        }
         /// <summary>
         /// Gets or sets the line number in the file.
         /// </summary>
-        public int LineNumber { get; }
+        public int LineNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the content of the line.
         /// </summary>
-        public string Content { get; }
+        public string Content { get; set;  }
 
         /// <summary>
         /// Gets or sets a value indicating whether the line is covered by tests.
