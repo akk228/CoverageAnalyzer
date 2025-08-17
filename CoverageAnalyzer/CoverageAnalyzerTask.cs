@@ -16,11 +16,11 @@ namespace CoverageAnalyzer
     {
         [Required]
         public string CoverageFilePath { get; set; }
-
+        [Required]
+        public int LineCoverageThreshold { get; set; }
         public string ReferenceBranch { get; set; }
-
         public string TargetBranch { get; set; }
-        
+        public int? BranchCoverageThreshold { get; set; }
 
         public override bool Execute()
         {
